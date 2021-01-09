@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @State private var tapCount = 0
     @State private var name = ""
+    let students = ["Harry", "Hermione", "Ron"]
+    @State private var selectedStudent = 0
     
     var body: some View {
         NavigationView{
@@ -22,7 +24,13 @@ struct ContentView: View {
 
                 Section {
                     Text("Hello \(name)")
-//                    Text("Hello World")
+                    Picker("Select a Student", selection: $selectedStudent){
+                        ForEach(0..<students.count){
+                            Text(self.students[$0])
+                        }
+                    }
+                    
+
                 }
                 
                 Button("Tap \(tapCount)"){
