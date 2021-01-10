@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var checkAmount = ""
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 2
+    let tipPercentages = [10, 15, 20, 25, 0]
+    
     @State private var tapCount = 0
     @State private var name = ""
     let students = ["Harry", "Hermione", "Ron"]
@@ -18,28 +23,27 @@ struct ContentView: View {
         NavigationView{
             Form {
                 Section {
-                    Text("First Name")
-                    TextField("Enter your name", text: $name)
-                }
-
-                Section {
-                    Text("Hello \(name)")
-                    Picker("Select a Student", selection: $selectedStudent){
-                        ForEach(0..<students.count){
-                            Text(self.students[$0])
+                    TextField("Amount", text: $checkAmount)
+                        .keyboardType(.decimalPad)
+                    
+                    Picker("Number of people", selection: $numberOfPeople) {
+                            ForEach(2 ..< 100) {
+                                Text("\($0) people")
+                            }
                         }
+                    
+                    
+                    Picker("Select Tip", selection: $tipPercentage){
+                        ForEach(0..<tipPercentages.count){
+                            Text("\(self.tipPercentages[$0])")
+                        }
+                        
                     }
                     
-
                 }
-                
-                Button("Tap \(tapCount)"){
-                    self.tapCount += 1
-                }
-                
             }
             
-            .navigationBarTitle(Text("Swift"), displayMode: .inline)
+            .navigationBarTitle(Text("WeSplit"))
         }
     }
 }
