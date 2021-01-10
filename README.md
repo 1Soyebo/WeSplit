@@ -13,9 +13,10 @@ The code with SwiftUI is eerily simple compared to the code you'd have to write 
 I am still new to it but I love how there is a clear seperation of concerns between the View and the ViewModel for example. There's also this concept known as two-way binding where a variable and a control are tightly coupled together such that if there is any change in the variable or control, the other is immediately notified of this change. No need for closures or delegates or notification center 😌
 
 ## SwiftUI is so Cool 🤩
-SwiftUI is an Apple Framework that uses this really cool declarative syntax that makes your work super easy. You are simply telling the compiler what to build for you and you don't have to concern yourself about the how to build it. And then you can easily adopt MVVM Architecture which I'm fairly new to. 
+SwiftUI is an Apple Framework that uses this really cool declarative syntax that makes your work super easy. You are simply telling the compiler what to build for you and you don't have to concern yourself about the how to build it.
 I'd recommend it for UI/UX designers who are looking to start building iOS apps. 
-Basically a View is a function of its `@State`. Its not as complex as it sounds but I won't do enough justice to it here.
+
+> Basically with SwiftUI, a View is a function of its `@State`. Its not as complex as it sounds but I won't do enough justice to it here.
 
 ### Imperative vs Declarative
 Its fun to use especially if you're coming from an imperative background. It takes a lot of stress of your back and you don't have to worry about auto-layout contraints and how the view would look like in landscape orientation. It also automatically handles scrolling. 
