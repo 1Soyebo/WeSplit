@@ -10,8 +10,9 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var checkAmount = ""
-    @State private var numberOfPeople = 2
+    @State private var numberOfPeople = ""
     @State private var tipPercentage = 2
+    
     let tipPercentages = [10, 15, 20, 25, 0]
     
 //    @State private var tapCount = 0
@@ -22,7 +23,7 @@ struct ContentView: View {
     
     //Calculating the tip per perosn
     var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+        let peopleCount = Double(Double(numberOfPeople) ?? 0 + 2)
         let tipSelection = Double(tipPercentages[tipPercentage])
         let orderAmount = Double(checkAmount) ?? 0
         
@@ -33,19 +34,24 @@ struct ContentView: View {
         return amountPerPerson
     }
     
+    var total_amount_for_check:Double{
+        let checkAmount_DOuble = Double(checkAmount) ?? 0
+        return totalPerPerson + checkAmount_DOuble
+    }
+    
     var body: some View {
         NavigationView{
-            VStack{
             Form {
                 Section {
                     TextField("Amount", text: $checkAmount)
                         .keyboardType(.decimalPad)
-                    
-                    Picker("Number of people", selection: $numberOfPeople) {
-                            ForEach(2 ..< 100) {
-                                Text("\($0) people")
-                            }
-                        }
+                    TextField("Number of People", text: $numberOfPeople)
+                        .keyboardType(.decimalPad)
+//                    Picker("Number of people", selection: $numberOfPeople) {
+//                            ForEach(2 ..< 100) {
+//                                Text("\($0) people")
+//                            }
+//                    }
                      
                 }
                 
@@ -58,15 +64,16 @@ struct ContentView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
-                Section {
+                Section(header: Text("Amount per person")) {
                     Text("$\(totalPerPerson, specifier: "%.2f")")
                 }
+                
+                Section(header: Text("total amount for the check")) {
+                    Text("$\(total_amount_for_check, specifier: "%.2f")")
+                }
+                
             }
-                Text("Why")
-            }
-//            VStack{
-//
-//            }
+            
             
             .navigationBarTitle(Text("WeSplit"))
         }
