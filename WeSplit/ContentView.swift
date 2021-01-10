@@ -31,15 +31,17 @@ struct ContentView: View {
                                 Text("\($0) people")
                             }
                         }
-                    
-                    
+                     
+                }
+                
+                Section(header: Text("k"), footer: Text("l")){
+                    Text("Tip")
                     Picker("Select Tip", selection: $tipPercentage){
                         ForEach(0..<tipPercentages.count){
-                            Text("\(self.tipPercentages[$0])")
+                            Text("\(self.tipPercentages[$0])%")
                         }
                         
-                    }
-                    
+                    }.pickerStyle(SegmentedPickerStyle())
                 }
             }
             
