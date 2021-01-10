@@ -35,6 +35,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
+            VStack{
             Form {
                 Section {
                     TextField("Amount", text: $checkAmount)
@@ -61,6 +62,11 @@ struct ContentView: View {
                     Text("$\(totalPerPerson, specifier: "%.2f")")
                 }
             }
+                Text("Why")
+            }
+//            VStack{
+//
+//            }
             
             .navigationBarTitle(Text("WeSplit"))
         }
