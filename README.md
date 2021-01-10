@@ -1,4 +1,4 @@
 # WeSplit
 #100DaysOfSwiftUI Project One 
 
-![alt text](https://github.com/1Soyebo/WeSplit/blob/master/images/image1.png =100x20)
+<img src="https://github.com/1Soyebo/WeSplit/blob/master/images/image1.png" width="200" height="200" />
