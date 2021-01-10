@@ -39,7 +39,7 @@ var body: some View {
  }
 
 ```
-What that is doing is first creating a view for you, then adding **UINavigationController** with a navigation bar and then a **UITableView** with tableview cells, a section and two **textfields** that use decimal keyboard type.
+What that code is doing is first creating a view for you, then adding **UINavigationController** with a navigation bar and then a **UITableView** with tableview cells, a section and two **textfields** that use decimal keyboard type.
 
 if you were to write that with UIKit you would have at least 2 UITableView DataSource methods and 1 UITableView Delegate Method. Not the mention the UIViewController's viewDidLoad and A LOT of work in a StoryBoard or a XIB file.
 
