@@ -72,6 +72,7 @@ struct ContentView: View {
                     Text("$\(total_amount_for_check, specifier: "%.2f")")
                 }
                 
+                
             }
             
             
