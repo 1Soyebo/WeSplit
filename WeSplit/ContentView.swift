@@ -7,6 +7,23 @@
 
 import SwiftUI
 
+
+struct LargeBlueFont: ViewModifier{
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(.blue)
+            .font(.largeTitle)
+    }
+    
+}
+
+extension View{
+    func applyLargeBlueFont() -> some View{
+        self.modifier(LargeBlueFont())
+    }
+}
+
 struct ContentView: View {
     
     @State private var checkAmount = ""
@@ -64,12 +81,15 @@ struct ContentView: View {
                     }.pickerStyle(SegmentedPickerStyle())
                 }
                 
-                Section(header: Text("Amount per person")) {
+                Section(header: Text("Amount per person")
+                ) {
                     Text("$\(totalPerPerson, specifier: "%.2f")")
                 }
                 
                 Section(header: Text("total amount for the check")) {
                     Text("$\(total_amount_for_check, specifier: "%.2f")")
+                        .foregroundColor(tipPercentage == 4 ? .red:.none)
+                        
                 }
                 
                 
